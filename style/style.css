@@ -78,7 +78,6 @@ header a {
 footer{
     grid-area: footer;
     background-color: #007EA7;
-    height: 200px;
     text-align:center;
     display: flex;
     justify-content:space-around;
@@ -230,7 +229,7 @@ footer p {
 }
 
 #servicios img {
-    width: 200px;
+    width: 300px;
     min-width: 100px;
     border-radius: 8px;
     padding: 20px;
@@ -241,17 +240,24 @@ footer p {
 #Electricidad {
     background-color: var(--main-color);
     color: var(--main-text-color);
-    text-align: center;
-    padding-top: 5%;
+    text-align:center;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 #Electricidad h2 {
     font-weight: 900;
 }
 
-#Electricidad p {
+#Elect h2 {
+    font-weight: 900;
+    padding-left: 2%;
+}
+
+#Elect p {
     font-style: italic;
-    text-align: center;
+    text-align:left;
+    padding-left: 2%;
 }
 
 /*** INFORMACIÓN ***/
@@ -261,6 +267,13 @@ footer p {
     color: var(--main-text-color);
     text-align: center;
     padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+#Info {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 2%;
 }
 
 #Información h2 {
@@ -269,18 +282,22 @@ footer p {
 
 label[for="nombre"] {
     background-color: antiquewhite;
+    margin-bottom: 1%;
 }
 
 label[for="dni"] {
     background-color: antiquewhite;
+    margin-bottom: 1%;
 }
 
 label[for="email"] {
     background-color: antiquewhite;
+    margin-bottom: 1%;
 }
 
 input[type="email"] {
     background-color:aliceblue;
+    margin-bottom: 1%;
 }
 
 /*** MANTENIMIENTO ***/
@@ -291,6 +308,7 @@ input[type="email"] {
     text-align: center;
     font-weight:500;
     padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 #Mantenimiento h2 {
@@ -301,6 +319,9 @@ input[type="email"] {
 #mant {
     background-color:aliceblue;
     color: #00A8E8;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 2%;
 }
 
 #mant h2 {
@@ -311,10 +332,12 @@ input[type="email"] {
 #mant p {
     font-style: italic;
     text-align:left;
+    font-weight:700;
 }
 
 label[for="Reparaciones"] {
     background-color:#003459;
+    margin-bottom: 1%;
 }
 
 /*** PRESUPUESTO ***/
@@ -324,6 +347,17 @@ label[for="Reparaciones"] {
     color: var(--main-text-color);
     text-align: center;
     padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+#Presupuesto h2 {
+    font-weight: 900;
+}
+
+#presup {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 3%;
 }
 
 #presup h2 {
@@ -331,9 +365,24 @@ label[for="Reparaciones"] {
     text-decoration: underline;
 }
 
-#presup p {
+#presup div {
     font-style: italic;
     text-align:left;
+    margin-bottom: 1%;
+    color: #00A8E8;
+}
+
+label[for="Presupuesto"] {
+    background-color:#003459;
+    margin-bottom: 1%;
+}
+
+#presuptabla {
+    text-align:left;
+    text-decoration: underline;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 3%;
 }
 
 table, th,td{
@@ -360,10 +409,17 @@ tr:hover{
     color: var(--main-text-color);
     text-align: center;
     padding-top: 5%;
+    padding-bottom: 5%;
 }  
 
 #Preguntas h2 {
     font-weight: 900;
+}
+
+#preg {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 2%;
 }
 
 #preg h2 {
@@ -385,6 +441,10 @@ tr:hover{
         "navbar servicios servicios servicios"
         "navbar footer footer footer";
         grid-template-columns: 150px 1fr 1fr 1fr;
+    }
+
+    #servicios img {
+        width: 90%;
     }
     
 }
@@ -410,7 +470,21 @@ tr:hover{
         width: 100%;
         margin-bottom: 5%;
     }
+
+    #Información iframe {
+        width: 80%;
+    }
     
+    #Mantenimiento iframe {
+        width: 80%;
+    }
+
+    .footercontainer {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 425px) {
