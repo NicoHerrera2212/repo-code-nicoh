@@ -1,0 +1,37 @@
+#Información {
+    background-color: $maincolor;
+    color: $maintextcolor;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    h2 {
+        font-weight: 900;
+    }
+
+    #Info {
+        padding-top: 5%;
+        padding-bottom: 5%;
+        padding-left: 2%;
+
+        label[for="nombre"] {
+            background-color: antiquewhite;
+            margin-bottom: 1%;
+        }
+
+        label[for="dni"] {
+            background-color: antiquewhite;
+            margin-bottom: 1%;
+        }
+
+        label[for="email"] {
+            background-color: antiquewhite;
+            margin-bottom: 1%;
+        }
+
+        input[type="email"] {
+            background-color: aliceblue;
+            margin-bottom: 1%;
+        }
+    }
+}

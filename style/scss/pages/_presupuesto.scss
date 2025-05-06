@@ -1,0 +1,65 @@
+#Presupuesto {
+    background-color: $maincolor;
+    color: $maintextcolor;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    h2 {
+        font-weight: 900;
+    }
+
+    #presup {
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 3%;
+
+        h2 {
+            text-align: left;
+            text-decoration: underline;
+        }
+
+        div {
+            font-style: italic;
+            text-align: left;
+            margin-bottom: 1%;
+            color: #00A8E8;
+        }
+
+        label[for="Presupuesto"] {
+            background-color: #003459;
+            margin-bottom: 1%;
+        }
+
+    }
+
+    #presuptabla {
+        text-align: left;
+        text-decoration: underline;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        padding-left: 3%;
+
+        table,
+        th,
+        td {
+            border-bottom: 1px #007EA7 solid;
+            padding: 5px;
+        }
+
+        th {
+            height: 2rem;
+            background-color: #00A8E8;
+            text-align: left;
+        }
+
+        td:nth-child(even) {
+            background-color: aliceblue;
+            text-align: center;
+        }
+
+        tr:hover {
+            background-color: aquamarine;
+        }
+    }
+}

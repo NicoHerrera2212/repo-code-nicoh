@@ -1,0 +1,22 @@
+header {
+    grid-area: header;
+    background-color: $maintextcolor;
+    color: $maintextlight;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 0 20px;
+    height: 50px;
+    width: 100%;
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: $maintextlight;
+        font-family: "Lato", sans-serif;
+    }
+}

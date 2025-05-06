@@ -1,0 +1,37 @@
+#Mantenimiento {
+    background-color: $maincolor;
+    color: $maintextcolor;
+    text-align: center;
+    font-weight: 500;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    h2 {
+        font-weight: 900;
+        text-decoration: solid;
+    }
+
+    #mant {
+        background-color: aliceblue;
+        color: #00A8E8;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 2%;
+
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        p {
+            font-style: italic;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        label[for="Reparaciones"] {
+            background-color: #003459;
+            margin-bottom: 1%;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+#Preguntas {
+    background-color: $maincolor;
+    color: $maintextcolor;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    h2 {
+        font-weight: 900;
+    }
+
+    #preg {
+        padding-top: 5%;
+        padding-bottom: 5%;
+        padding-left: 2%;
+
+        h2 {
+            font-weight: 600;
+            text-align: left;
+        }
+
+        p {
+            font-style: italic;
+            text-align: left;
+        }
+    }
+}

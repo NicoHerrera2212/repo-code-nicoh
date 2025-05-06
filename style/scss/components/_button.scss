@@ -1,0 +1,15 @@
+.boton {
+    background-color: $maincolorsecondary;
+    color: white;
+    border-radius: 8px;
+    padding: 5px;
+    border-style:solid;
+}
+
+.boton:hover {
+    background-color: black;
+}
+
+.boton:active {
+    background-color: aquamarine;
+}

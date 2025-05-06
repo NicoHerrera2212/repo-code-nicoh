@@ -1,0 +1,68 @@
+@media screen and (max-width: 1024px) {
+    body {
+        grid-template-areas:
+        "navbar header header header"
+        "navbar banner banner banner"
+        "navbar banner2 banner2 banner2"
+        "navbar servicios servicios servicios"
+        "navbar footer footer footer";
+        grid-template-columns: 150px 1fr 1fr 1fr;
+    }
+
+    #servicios img {
+        width: 90%;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        grid-template-areas:
+        "navbar header header header"
+        "navbar banner banner banner"
+        "navbar banner2 banner2 banner2"
+        "navbar servicios servicios servicios"
+        "navbar footer footer footer";
+        grid-template-columns: 150px 1fr 1fr 1fr;
+    }
+
+    .servicioscontainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .servicios {
+        width: 100%;
+        margin-bottom: 5%;
+    }
+
+    #Información iframe {
+        width: 80%;
+    }
+    
+    #Mantenimiento iframe {
+        width: 80%;
+    }
+
+    .footercontainer {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footercontainer {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10%;
+    }
+}
