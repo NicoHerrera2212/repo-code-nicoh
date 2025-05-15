@@ -1,18 +1,402 @@
-/* Error: Undefined variable.
- *   ,
- * 2 |     background-color: $maincolorsecondary;
- *   |                       ^^^^^^^^^^^^^^^^^^^
- *   '
- *   style\scss\components\_button.scss 2:23  @use
- *   style\scss\main.scss 6:1                 root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 2 \2502      background-color: $maincolorsecondary;\d\a   \2502                        ^^^^^^^^^^^^^^^^^^^\a   \2575 \a   style\\scss\\components\\_button.scss 2:23  @use\a   style\\scss\\main.scss 6:1                 root stylesheet";
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.boton {
+  background-color: #007EA7;
+  color: white;
+  border-radius: 8px;
+  padding: 5px;
+  border-style: solid;
+}
+
+.boton:hover {
+  background-color: black;
+}
+
+.boton:active {
+  background-color: aquamarine;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #007EA7;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+footer a {
+  color: #00171F;
+}
+footer p {
+  font-style: italic;
+  font-weight: 600;
+}
+footer .footercontainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+footer .footercontainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 80px;
+}
+footer .footercontainer form input {
+  margin: 10px 0;
+}
+footer .footercontainer .wp img {
+  width: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+header {
+  grid-area: header;
+  background-color: #00171F;
+  color: #d9e9f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 0 20px;
+  height: 50px;
+  width: 100%;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+}
+header a {
+  text-decoration: none;
+  color: #d9e9f5;
+  font-family: "Lato", sans-serif;
+}
+
+.navbar {
+  background-color: #003459;
+  color: #d9e9f5;
+}
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.navbar ul li {
+  margin-top: 20px;
+  padding-left: 15px;
+}
+.navbar ul li a {
+  color: #d9e9f5;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    grid-template-areas: "navbar header header header" "navbar banner banner banner" "navbar banner2 banner2 banner2" "navbar servicios servicios servicios" "navbar footer footer footer";
+    grid-template-columns: 150px 1fr 1fr 1fr;
+  }
+  #servicios img {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    grid-template-areas: "navbar header header header" "navbar banner banner banner" "navbar banner2 banner2 banner2" "navbar servicios servicios servicios" "navbar footer footer footer";
+    grid-template-columns: 150px 1fr 1fr 1fr;
+  }
+  .servicioscontainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .servicios {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  #Información iframe {
+    width: 80%;
+  }
+  #Mantenimiento iframe {
+    width: 80%;
+  }
+  .footercontainer {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 425px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .footercontainer {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10%;
+  }
+}
+#banner {
+  background-color: #d9e9f5;
+  background-image: url(../img/lamparalogo.png);
+  background-size: contain;
+  background-size: 1000px;
+  color: aliceblue;
+  text-align: center;
+  background-position: center;
+  height: 50vh;
+}
+#banner h2 {
+  display: flex;
+  text-align: justify;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 200%;
+  margin: 50px;
+}
+#banner p {
+  font-style: italic;
+  font-size: 120%;
+}
+
+#banner2 {
+  grid-area: banner2;
+}
+#banner2 p {
+  display: flex;
+  margin: 50px;
+  text-align: justify;
+  justify-content: space-around;
+  background-color: white;
+}
+
+#servicios {
+  grid-area: servicios;
+  background-color: #00A8E8;
+  color: #00171F;
+  text-align: center;
+  padding-top: 5%;
+}
+#servicios h2 {
+  font-weight: 900;
+  font-size: 200%;
+}
+#servicios h3 {
+  font-weight: 400;
+  text-align: center;
+  font-weight: 900;
+  margin-top: 10%;
+}
+#servicios p {
+  font-style: normal;
+  text-align: center;
+  margin: 10px 0;
+}
+#servicios img {
+  width: 300px;
+  min-width: 100px;
+  border-radius: 8px;
+  padding: 20px;
+}
+#servicios .servicioscontainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+#servicios .servicios {
+  background-color: #00A8E8;
+  color: #00171F;
+  width: 30%;
+  min-width: 200px;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+#Electricidad {
+  background-color: #00A8E8;
+  color: #00171F;
+  text-align: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+#Electricidad h2 {
+  font-weight: 900;
+}
+#Electricidad #Elect h2 {
+  font-weight: 900;
+  padding-left: 2%;
+}
+#Electricidad #Elect p {
+  font-style: italic;
+  text-align: left;
+  padding-left: 2%;
+}
+
+#Información {
+  background-color: #00A8E8;
+  color: #00171F;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+#Información h2 {
+  font-weight: 900;
+}
+#Información #Info {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 2%;
+}
+#Información #Info label[for=nombre] {
+  background-color: antiquewhite;
+  margin-bottom: 1%;
+}
+#Información #Info label[for=dni] {
+  background-color: antiquewhite;
+  margin-bottom: 1%;
+}
+#Información #Info label[for=email] {
+  background-color: antiquewhite;
+  margin-bottom: 1%;
+}
+#Información #Info input[type=email] {
+  background-color: aliceblue;
+  margin-bottom: 1%;
+}
+
+#Mantenimiento {
+  background-color: #00A8E8;
+  color: #00171F;
+  text-align: center;
+  font-weight: 500;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+#Mantenimiento h2 {
+  font-weight: 900;
+  text-decoration: solid;
+}
+#Mantenimiento #mant {
+  background-color: aliceblue;
+  color: #00A8E8;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 2%;
+}
+#Mantenimiento #mant h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+#Mantenimiento #mant p {
+  font-style: italic;
+  text-align: left;
+  font-weight: 700;
+}
+#Mantenimiento #mant label[for=Reparaciones] {
+  background-color: #003459;
+  margin-bottom: 1%;
+}
+
+#Presupuesto {
+  background-color: #00A8E8;
+  color: #00171F;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+#Presupuesto h2 {
+  font-weight: 900;
+}
+#Presupuesto #presup {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 3%;
+}
+#Presupuesto #presup h2 {
+  text-align: left;
+  text-decoration: underline;
+}
+#Presupuesto #presup div {
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 1%;
+  color: #00A8E8;
+}
+#Presupuesto #presup label[for=Presupuesto] {
+  background-color: #003459;
+  margin-bottom: 1%;
+}
+#Presupuesto #presuptabla {
+  text-align: left;
+  text-decoration: underline;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 3%;
+}
+#Presupuesto #presuptabla table,
+#Presupuesto #presuptabla th,
+#Presupuesto #presuptabla td {
+  border-bottom: 1px #007EA7 solid;
+  padding: 5px;
+}
+#Presupuesto #presuptabla th {
+  height: 2rem;
+  background-color: #00A8E8;
+  text-align: left;
+}
+#Presupuesto #presuptabla td:nth-child(even) {
+  background-color: aliceblue;
+  text-align: center;
+}
+#Presupuesto #presuptabla tr:hover {
+  background-color: aquamarine;
+}
+
+#Preguntas {
+  background-color: #00A8E8;
+  color: #00171F;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+#Preguntas h2 {
+  font-weight: 900;
+}
+#Preguntas #preg {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 2%;
+}
+#Preguntas #preg h2 {
+  font-weight: 600;
+  text-align: left;
+}
+#Preguntas #preg p {
+  font-style: italic;
+  text-align: left;
+}
+
+/*# sourceMappingURL=style.css.map */
