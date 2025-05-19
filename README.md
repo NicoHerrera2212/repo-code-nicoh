@@ -1,2 +1,2 @@
 ﻿# repo-code-nicoh
-file:///C:/Users/nicoh/OneDrive/Escritorio/Coderhouse/Clase%201/index.html
+https://nicoherrera2212.github.io/repo-code-nicoh/
