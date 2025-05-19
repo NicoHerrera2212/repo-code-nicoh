@@ -1,88 +1,153 @@
 @use "../base/vars" as *;
 
 #banner {
-    background-color: $maintextlight;
-    background-image: url(../img/lamparalogo.png);
-    background-size: contain;
-    background-size: 1000px;
-    color: aliceblue;
+  background-color: $maintextlight;
+  background-image: url(../../img/lamparalogo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: aliceblue;
+  text-align: center;
+  height: 40vh;
+  padding: 1rem;
+
+  h2 {
+    display: flex;
+    justify-content: center;
     text-align: center;
-    background-position: center;
-    height: 50vh;
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 6rem);
+    margin: 50px;
 
-    h2 {
-        display: flex;
-        text-align: justify;
-        justify-content: center;
-        font-weight: 900;
-        font-size: 200%;
-        margin: 50px;
+    // Degradado negro más oscuro y definido
+    background: linear-gradient(270deg, #111111, #222222, #111111);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textBlackGradientAnim 8s ease infinite;
+
+    // Glow azul más sutil
+    text-shadow:
+      0 0 3px #f3f6f7,
+      0 0 6px #f1f8fb,
+      0 0 9px #f4f5f6;
+
+    transition: text-shadow 0.3s ease;
+
+    &:hover {
+      text-shadow:
+        0 0 6px #0099cc,
+        0 0 12px #0099cc,
+        0 0 18px #0077aa;
+      cursor: pointer;
     }
+  }
 
-    p {
-        font-style: italic;
-        font-size: 120%;
-    }  
+  p {
+    font-style: italic;
+    font-size: 120%;
+  }
+}
+
+@keyframes textBlackGradientAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 #banner2 {
     grid-area: banner2;
+    padding: 2rem 1rem;
 
     p {
-        display: flex;
-        margin: 50px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
         text-align: justify;
-        justify-content: space-around;
         background-color: white;
+        box-sizing: border-box;
+        font-size: 1rem;
 
+        @media (max-width: 600px) {
+            font-size: 0.9rem; 
+            padding: 0.5rem;
+        }
     }
 }
 
+
 #servicios {
-    grid-area: servicios;
+  grid-area: servicios;
+  background-color: $maincolor;
+  color: $maintextcolor;
+  text-align: center;
+  padding-top: 5%;
+
+  h2 {
+    font-weight: 900;
+    font-size: 200%;
+  }
+
+  h3 {
+    font-weight: 900;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  p {
+    font-style: normal;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    padding: 20px;
+    display: block;
+    margin: 0 auto;
+
+    // Efecto dinámico
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+  }
+
+  .servicioscontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .servicios {
     background-color: $maincolor;
     color: $maintextcolor;
-    text-align: center;
-    padding-top: 5%;
+    width: 100%;
+    max-width: 300px;
+    min-width: 200px;
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
 
-    h2 {
-        font-weight: 900;
-        font-size: 200%;
+    &:hover {
+      transform: translateY(-5px);
     }
-
-    h3 {
-        font-weight: 400;
-        text-align: center;
-        font-weight: 900;
-        margin-top: 10%;
-    }
-
-    p {
-        font-style: normal;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    img {
-        width: 300px;
-        min-width: 100px;
-        border-radius: 8px;
-        padding: 20px;
-    }
-
-    .servicioscontainer {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 40px;
-        margin-bottom: 30px;
-    }
-
-    .servicios {
-        background-color: $maincolor;
-        color: $maintextcolor;
-        width: 30%;
-        min-width: 200px;
-        border-radius: 8px;
-        padding: 20px;
-    }
+  }
 }

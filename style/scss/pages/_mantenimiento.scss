@@ -1,39 +1,139 @@
 @use "../base/vars" as *;
 
 #Mantenimiento {
-    background-color: $maincolor;
-    color: $maintextcolor;
+  background-color: $maincolor;
+  color: $maintextcolor;
+  text-align: center;
+  font-weight: 500;
+  padding: 5% 2%;
+
+  h2 {
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 4rem);
+    background: linear-gradient(90deg, #dfe9f3, #a0b8c9, #7e9bb3, #dfe9f3);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: brilloMetalico 6s linear infinite, fadeUp 1s ease-out forwards;
+    text-shadow: 0 0 6px rgba(120, 160, 180, 0.5);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+// Degradado metálico animado
+@keyframes brilloMetalico {
+  0% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+
+  100% {
+    background-position: 0% center;
+  }
+}
+
+// Fade-up suave
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#mant {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)),
+    url("../../img/electricidadpreg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #003459;
+  padding: 5% 4%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  h2 {
     text-align: center;
-    font-weight: 500;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    color: #0077b6;
+    margin-bottom: 2rem;
+    position: relative;
 
-    h2 {
-        font-weight: 900;
-        text-decoration: solid;
+    &::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #00a8e8;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+  }
+
+  p {
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #005077;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-items: center;
+  }
+
+  .checkbox-container {
+    background-color: #ffffff;
+    border: 1px solid #e0ecf4;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 52, 89, 0.08);
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 52, 89, 0.15);
     }
 
-    #mant {
-        background-color: aliceblue;
-        color: #00A8E8;
-        padding-top: 3%;
-        padding-bottom: 3%;
-        padding-left: 2%;
-
-        h2 {
-            text-align: center;
-            text-decoration: underline;
-        }
-
-        p {
-            font-style: italic;
-            text-align: left;
-            font-weight: 700;
-        }
-
-        label[for="Reparaciones"] {
-            background-color: #003459;
-            margin-bottom: 1%;
-        }
+    input[type="checkbox"] {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      accent-color: #00a8e8;
     }
+
+    label {
+      background: none;
+      padding: 0;
+      color: #003459;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
 }

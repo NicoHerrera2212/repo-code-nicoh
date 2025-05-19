@@ -36,39 +36,89 @@ body {
 footer {
   grid-area: footer;
   background-color: #007EA7;
+  color: #00171F;
   text-align: center;
+  padding: 20px 10px;
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  align-items: center;
+  gap: 20px;
 }
 footer a {
   color: #00171F;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
 }
 footer p {
   font-style: italic;
   font-weight: 600;
+  margin: 0;
 }
 footer .footercontainer {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
 }
-footer .footercontainer form {
+footer .footercontainer .info {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+footer .footercontainer form.newsletter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 80px;
+  flex: 1 1 300px;
+  max-width: 400px;
+  margin: 0;
 }
-footer .footercontainer form input {
-  margin: 10px 0;
+footer .footercontainer form.newsletter label {
+  margin-bottom: 8px;
+}
+footer .footercontainer form.newsletter input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+}
+footer .footercontainer form.newsletter button {
+  padding: 8px 16px;
+  background-color: #005f73;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+footer .footercontainer form.newsletter button:hover {
+  background-color: #0a9396;
 }
 footer .footercontainer .wp img {
   width: 50px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+footer .footercontainer .wp img:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 600px) {
+  footer .footercontainer {
+    flex-direction: column;
+    gap: 15px;
+  }
+  footer form.newsletter,
+  footer .info {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 header {
@@ -96,6 +146,12 @@ header a {
   background-color: #003459;
   color: #d9e9f5;
 }
+.navbar .navbar-toggler {
+  border-color: #d9e9f5;
+}
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%23d9e9f5' viewBox='0 0 30 30'><path stroke='%23d9e9f5' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
 .navbar ul {
   list-style-type: none;
   display: flex;
@@ -108,6 +164,11 @@ header a {
 }
 .navbar ul li a {
   color: #d9e9f5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.navbar ul li a:hover {
+  color: #ffffff;
 }
 
 @media screen and (max-width: 1024px) {
@@ -145,6 +206,14 @@ header a {
     align-items: center;
     justify-content: center;
   }
+  #banner {
+    height: 30vh;
+    background-size: contain;
+  }
+  #banner h2 {
+    font-size: 300%;
+    margin: 10px;
+  }
 }
 @media screen and (max-width: 425px) {
   body {
@@ -160,36 +229,68 @@ header a {
 }
 #banner {
   background-color: #d9e9f5;
-  background-image: url(../img/lamparalogo.png);
-  background-size: contain;
-  background-size: 1000px;
+  background-image: url(../../img/lamparalogo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: aliceblue;
   text-align: center;
-  background-position: center;
-  height: 50vh;
+  height: 40vh;
+  padding: 1rem;
 }
 #banner h2 {
   display: flex;
-  text-align: justify;
   justify-content: center;
+  text-align: center;
   font-weight: 900;
-  font-size: 200%;
+  font-size: clamp(2rem, 5vw, 6rem);
   margin: 50px;
+  background: linear-gradient(270deg, #111111, #222222, #111111);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textBlackGradientAnim 8s ease infinite;
+  text-shadow: 0 0 3px #f3f6f7, 0 0 6px #f1f8fb, 0 0 9px #f4f5f6;
+  transition: text-shadow 0.3s ease;
+}
+#banner h2:hover {
+  text-shadow: 0 0 6px #0099cc, 0 0 12px #0099cc, 0 0 18px #0077aa;
+  cursor: pointer;
 }
 #banner p {
   font-style: italic;
   font-size: 120%;
 }
 
+@keyframes textBlackGradientAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 #banner2 {
   grid-area: banner2;
+  padding: 2rem 1rem;
 }
 #banner2 p {
-  display: flex;
-  margin: 50px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
   text-align: justify;
-  justify-content: space-around;
   background-color: white;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  #banner2 p {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
 }
 
 #servicios {
@@ -204,9 +305,8 @@ header a {
   font-size: 200%;
 }
 #servicios h3 {
-  font-weight: 400;
-  text-align: center;
   font-weight: 900;
+  text-align: center;
   margin-top: 10%;
 }
 #servicios p {
@@ -215,46 +315,155 @@ header a {
   margin: 10px 0;
 }
 #servicios img {
-  width: 300px;
-  min-width: 100px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   border-radius: 8px;
   padding: 20px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+#servicios img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 #servicios .servicioscontainer {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   margin-top: 40px;
   margin-bottom: 30px;
 }
 #servicios .servicios {
   background-color: #00A8E8;
   color: #00171F;
-  width: 30%;
+  width: 100%;
+  max-width: 300px;
   min-width: 200px;
   border-radius: 8px;
   padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+#servicios .servicios:hover {
+  transform: translateY(-5px);
 }
 
 #Electricidad {
-  background-color: #00A8E8;
-  color: #00171F;
+  background-image: url(../../img/68904-electrical-hd-wallpaper-electrical.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding: 2rem;
 }
 #Electricidad h2 {
-  font-weight: 900;
+  font-size: 2.5rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
 }
-#Electricidad #Elect h2 {
+@media (max-width: 768px) {
+  #Electricidad {
+    background-attachment: scroll;
+    min-height: 40vh;
+  }
+  #Electricidad h2 {
+    font-size: 1.8rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  #Electricidad {
+    min-height: 30vh;
+  }
+  #Electricidad h2 {
+    font-size: 1.5rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+#Elect {
+  padding: 3rem 2rem;
+  background: linear-gradient(-45deg, #007cf0, #00b2df, #ffffff, #a0f0ff);
+  background-size: 400% 400%;
+  animation: fondoAnimado 15s ease infinite;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  color: #1a1a1a;
+}
+#Elect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+}
+#Elect h2 {
   font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0a1a2f;
   padding-left: 2%;
+  font-family: "Poppins", sans-serif;
+  transition: transform 0.3s;
 }
-#Electricidad #Elect p {
+#Elect h2:hover {
+  transform: scale(1.03);
+}
+#Elect p {
   font-style: italic;
   text-align: left;
   padding-left: 2%;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  max-width: 800px;
+  font-family: "Open Sans", sans-serif;
+  color: #1c1c1c;
+}
+@media (max-width: 768px) {
+  #Elect h2 {
+    font-size: 2rem;
+  }
+  #Elect p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  #Elect {
+    padding: 2rem 1rem;
+  }
+  #Elect h2,
+  #Elect p {
+    padding-left: 0;
+    text-align: center;
+  }
 }
 
+@keyframes fondoAnimado {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 #Información {
   background-color: #00A8E8;
   color: #00171F;
@@ -264,27 +473,85 @@ header a {
 }
 #Información h2 {
   font-weight: 900;
+  font-size: clamp(2rem, 5vw, 4rem);
+  background: linear-gradient(270deg, #ffffff, #a8e0ff, #00bfff, #ffffff);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: tituloDegradado 6s ease infinite, fadeSlideUp 1s ease forwards;
+  text-shadow: 0 0 4px rgba(173, 216, 230, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
 }
-#Información #Info {
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 2%;
+
+@keyframes tituloDegradado {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-#Información #Info label[for=nombre] {
-  background-color: antiquewhite;
-  margin-bottom: 1%;
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-#Información #Info label[for=dni] {
-  background-color: antiquewhite;
-  margin-bottom: 1%;
+#Info {
+  padding: 5% 2%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../../img/Electricity-lamp.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
-#Información #Info label[for=email] {
-  background-color: antiquewhite;
-  margin-bottom: 1%;
+#Info form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
-#Información #Info input[type=email] {
-  background-color: aliceblue;
-  margin-bottom: 1%;
+#Info label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #003459;
+}
+#Info input[type=text],
+#Info input[type=email],
+#Info input[type=number] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f5faff;
+  transition: border-color 0.3s ease;
+}
+#Info input[type=text]:focus,
+#Info input[type=email]:focus,
+#Info input[type=number]:focus {
+  border-color: #00aaff;
+  outline: none;
+}
+#Info button {
+  background-color: #003459;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#Info button:hover {
+  background-color: #005a8d;
 }
 
 #Mantenimiento {
@@ -292,111 +559,383 @@ header a {
   color: #00171F;
   text-align: center;
   font-weight: 500;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding: 5% 2%;
 }
 #Mantenimiento h2 {
   font-weight: 900;
-  text-decoration: solid;
+  font-size: clamp(2rem, 5vw, 4rem);
+  background: linear-gradient(90deg, #dfe9f3, #a0b8c9, #7e9bb3, #dfe9f3);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brilloMetalico 6s linear infinite, fadeUp 1s ease-out forwards;
+  text-shadow: 0 0 6px rgba(120, 160, 180, 0.5);
+  opacity: 0;
+  transform: translateY(20px);
 }
-#Mantenimiento #mant {
-  background-color: aliceblue;
-  color: #00A8E8;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  padding-left: 2%;
+
+@keyframes brilloMetalico {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
 }
-#Mantenimiento #mant h2 {
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#mant {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../../img/electricidadpreg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #003459;
+  padding: 5% 4%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+#mant h2 {
   text-align: center;
-  text-decoration: underline;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  color: #0077b6;
+  margin-bottom: 2rem;
+  position: relative;
 }
-#Mantenimiento #mant p {
+#mant h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #00a8e8;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+#mant p {
   font-style: italic;
-  text-align: left;
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #005077;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-inline: auto;
+  text-align: center;
 }
-#Mantenimiento #mant label[for=Reparaciones] {
-  background-color: #003459;
-  margin-bottom: 1%;
+#mant .checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  justify-items: center;
+}
+#mant .checkbox-container {
+  background-color: #ffffff;
+  border: 1px solid #e0ecf4;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 52, 89, 0.08);
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#mant .checkbox-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 52, 89, 0.15);
+}
+#mant .checkbox-container input[type=checkbox] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: #00a8e8;
+}
+#mant .checkbox-container label {
+  background: none;
+  padding: 0;
+  color: #003459;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: none;
+}
+@media (max-width: 768px) {
+  #mant {
+    padding: 3rem 1rem;
+  }
 }
 
 #Presupuesto {
-  background-color: #00A8E8;
+  background: linear-gradient(rgba(0, 52, 89, 0.6), rgba(0, 52, 89, 0.6)), url("../../img/prespelect.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #00171F;
   text-align: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding: 2rem;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #Presupuesto h2 {
   font-weight: 900;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 1.2s ease-out forwards;
+  background-color: rgba(179, 181, 185, 0.996);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 4px 12px rgba(173, 179, 193, 0.2);
 }
-#Presupuesto #presup {
-  padding-top: 3%;
-  padding-bottom: 3%;
-  padding-left: 3%;
-}
-#Presupuesto #presup h2 {
-  text-align: left;
-  text-decoration: underline;
-}
-#Presupuesto #presup div {
-  font-style: italic;
-  text-align: left;
-  margin-bottom: 1%;
-  color: #00A8E8;
-}
-#Presupuesto #presup label[for=Presupuesto] {
-  background-color: #003459;
-  margin-bottom: 1%;
-}
-#Presupuesto #presuptabla {
-  text-align: left;
-  text-decoration: underline;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 3%;
-}
-#Presupuesto #presuptabla table,
-#Presupuesto #presuptabla th,
-#Presupuesto #presuptabla td {
-  border-bottom: 1px #007EA7 solid;
-  padding: 5px;
-}
-#Presupuesto #presuptabla th {
-  height: 2rem;
-  background-color: #00A8E8;
-  text-align: left;
-}
-#Presupuesto #presuptabla td:nth-child(even) {
-  background-color: aliceblue;
-  text-align: center;
-}
-#Presupuesto #presuptabla tr:hover {
-  background-color: aquamarine;
+@media (max-width: 768px) {
+  #Presupuesto {
+    padding: 3rem 1rem;
+    min-height: 50vh;
+  }
 }
 
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#presup {
+  background-color: #f0f8ff;
+  padding: 4% 3%;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+#presup h2 {
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #003459;
+  margin-bottom: 2rem;
+  position: relative;
+}
+#presup h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #00a8e8;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+#presup .info-item {
+  background-color: #eaf6fb;
+  border-left: 4px solid #00a8e8;
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+  color: #005077;
+  font-size: 1rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 6px rgba(0, 52, 89, 0.1);
+}
+#presup label[for=Presupuesto] {
+  display: block;
+  background-color: #003459;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  margin: 2rem auto 0;
+  width: fit-content;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#presup label[for=Presupuesto]:hover {
+  background-color: #005c8a;
+}
+
+#presuptabla {
+  background-color: #f9fcff;
+  padding: 5% 3%;
+  text-align: center;
+}
+#presuptabla h2 {
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #003459;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  position: relative;
+}
+#presuptabla h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #00a8e8;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+#presuptabla table {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0, 52, 89, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+#presuptabla th {
+  background-color: #00a8e8;
+  color: #ffffff;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+#presuptabla td {
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: #003459;
+  text-align: center;
+}
+#presuptabla td:nth-child(even) {
+  background-color: #eaf6fb;
+}
+#presuptabla tr:hover {
+  background-color: #c4f1f9;
+  transition: background-color 0.3s ease;
+}
+
+table {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInTable 0.8s ease-out forwards;
+}
+
+@keyframes fadeInTable {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 #Preguntas {
-  background-color: #00A8E8;
+  background: linear-gradient(rgba(0, 52, 89, 0.6), rgba(0, 52, 89, 0.6)), url("../../img/electricidadportada.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #00171F;
   text-align: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding: 5% 2%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #Preguntas h2 {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 8px;
   font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1.2s ease-out forwards;
 }
-#Preguntas #preg {
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 2%;
+@media (max-width: 768px) {
+  #Preguntas {
+    padding: 3rem 1rem;
+    min-height: 50vh;
+  }
 }
-#Preguntas #preg h2 {
-  font-weight: 600;
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#preg {
+  background: linear-gradient(-45deg, #007cf0, #00b2df, #ffffff, #a0f0ff);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  padding: 5% 2%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  color: #003459;
+}
+#preg h2 {
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
   text-align: left;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
-#Preguntas #preg p {
+#preg h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background-color: #00a8e8;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+}
+#preg p {
   font-style: italic;
+  font-size: 1.1rem;
   text-align: left;
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #005077;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 1.2s ease-out forwards;
+  animation-delay: 0.5s;
+}
+@media (max-width: 768px) {
+  #preg {
+    padding: 3rem 1rem;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

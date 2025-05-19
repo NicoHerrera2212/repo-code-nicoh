@@ -51,6 +51,16 @@
         align-items: center;
         justify-content: center;
     }
+
+    #banner {
+    height: 30vh;
+    background-size: contain;
+  }
+
+  #banner h2 {
+    font-size: 300%;
+    margin: 10px;
+  }
 }
 
 @media screen and (max-width: 425px) {

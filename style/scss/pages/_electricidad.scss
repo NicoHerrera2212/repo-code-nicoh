@@ -1,24 +1,124 @@
 @use "../base/vars" as *;
 
 #Electricidad {
-    background-color: $maincolor;
-    color: $maintextcolor;
-    text-align: center;
-    padding-top: 3%;
-    padding-bottom: 3%;
+  background-image: url(../../img/68904-electrical-hd-wallpaper-electrical.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+
+  h2 {
+    font-size: 2.5rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+  }
+
+
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+    min-height: 40vh;
 
     h2 {
-        font-weight: 900;
+      font-size: 1.8rem;
+      padding: 0.8rem 1.5rem;
     }
+  }
 
-    #Elect h2 {
-        font-weight: 900;
-        padding-left: 2%;
-    }
+  @media (max-width: 480px) {
+    min-height: 30vh;
 
-    #Elect p {
-        font-style: italic;
-        text-align: left;
-        padding-left: 2%;
+    h2 {
+      font-size: 1.5rem;
+      padding: 0.6rem 1rem;
     }
+  }
 }
+
+
+#Elect {
+  padding: 3rem 2rem;
+  background: linear-gradient(-45deg, #007cf0, #00b2df, #ffffff, #a0f0ff);
+  background-size: 400% 400%;
+  animation: fondoAnimado 15s ease infinite;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  color: #1a1a1a;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+  }
+
+  h2 {
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #0a1a2f;
+    padding-left: 2%;
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  p {
+    font-style: italic;
+    text-align: left;
+    padding-left: 2%;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    max-width: 800px;
+    font-family: 'Open Sans', sans-serif;
+    color: #1c1c1c;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 1rem;
+
+    h2,
+    p {
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+}
+
+// Animación del fondo
+@keyframes fondoAnimado {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+

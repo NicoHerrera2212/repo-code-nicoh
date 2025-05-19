@@ -1,67 +1,180 @@
 @use "../base/vars" as *;
 
 #Presupuesto {
-    background-color: $maincolor;
+    background:
+        linear-gradient(rgba(0, 52, 89, 0.6), rgba(0, 52, 89, 0.6)),
+        url("../../img/prespelect.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: $maintextcolor;
     text-align: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding: 2rem;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     h2 {
         font-weight: 900;
+        font-size: clamp(2rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeSlideIn 1.2s ease-out forwards;
+
+        // Fondo semitransparente
+        background-color: rgba(179, 181, 185, 0.996); 
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        backdrop-filter: blur(3px);
+        box-shadow: 0 4px 12px rgba(173, 179, 193, 0.2);
     }
 
-    #presup {
-        padding-top: 3%;
-        padding-bottom: 3%;
-        padding-left: 3%;
+    @media (max-width: 768px) {
+        padding: 3rem 1rem;
+        min-height: 50vh;
+    }
+}
 
-        h2 {
-            text-align: left;
-            text-decoration: underline;
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#presup {
+    background-color: #f0f8ff;
+    padding: 4% 3%;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+    h2 {
+        font-weight: 900;
+        text-align: center;
+        text-decoration: none;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        color: #003459;
+        margin-bottom: 2rem;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #00a8e8;
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
         }
-
-        div {
-            font-style: italic;
-            text-align: left;
-            margin-bottom: 1%;
-            color: #00A8E8;
-        }
-
-        label[for="Presupuesto"] {
-            background-color: #003459;
-            margin-bottom: 1%;
-        }
-
     }
 
-    #presuptabla {
+    .info-item {
+        background-color: #eaf6fb;
+        border-left: 4px solid #00a8e8;
+        border-radius: 8px;
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
+        font-style: italic;
+        color: #005077;
+        font-size: 1rem;
+        line-height: 1.6;
+        box-shadow: 0 2px 6px rgba(0, 52, 89, 0.1);
+    }
+
+    label[for="Presupuesto"] {
+        display: block;
+        background-color: #003459;
+        color: #ffffff;
+        font-weight: 600;
+        border-radius: 6px;
+        padding: 0.75rem 1.5rem;
+        margin: 2rem auto 0;
+        width: fit-content;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #005c8a;
+        }
+    }
+}
+
+
+#presuptabla {
+    background-color: #f9fcff;
+    padding: 5% 3%;
+    text-align: center;
+
+    h2 {
+        font-weight: 900;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        color: #003459;
+        margin-bottom: 2rem;
+        text-decoration: none;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #00a8e8;
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+    }
+
+    table {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        border-collapse: collapse;
+        box-shadow: 0 4px 12px rgba(0, 52, 89, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th {
+        background-color: #00a8e8;
+        color: #ffffff;
         text-align: left;
-        text-decoration: underline;
-        padding-top: 5%;
-        padding-bottom: 5%;
-        padding-left: 3%;
+        padding: 0.75rem 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+    }
 
-        table,
-        th,
-        td {
-            border-bottom: 1px #007EA7 solid;
-            padding: 5px;
-        }
+    td {
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        color: #003459;
+        text-align: center;
+    }
 
-        th {
-            height: 2rem;
-            background-color: #00A8E8;
-            text-align: left;
-        }
+    td:nth-child(even) {
+        background-color: #eaf6fb;
+    }
 
-        td:nth-child(even) {
-            background-color: aliceblue;
-            text-align: center;
-        }
+    tr:hover {
+        background-color: #c4f1f9;
+        transition: background-color 0.3s ease;
+    }
+}
 
-        tr:hover {
-            background-color: aquamarine;
-        }
+table {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInTable 0.8s ease-out forwards;
+}
+
+@keyframes fadeInTable {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
