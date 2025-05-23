@@ -146,6 +146,13 @@ header a {
   background-color: #003459;
   color: #d9e9f5;
 }
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link.show {
+  color: #fff;
+}
+.navbar .nav-link {
+  color: #fff;
+}
 .navbar .navbar-toggler {
   border-color: #d9e9f5;
 }
@@ -394,51 +401,57 @@ header a {
 }
 
 #Elect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
   padding: 3rem 2rem;
   background: linear-gradient(-45deg, #007cf0, #00b2df, #ffffff, #a0f0ff);
   background-size: 400% 400%;
   animation: fondoAnimado 15s ease infinite;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  position: relative;
   overflow: hidden;
-  color: #1a1a1a;
 }
-#Elect::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+#Elect .elect-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   width: 100%;
-  height: 8px;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-}
-#Elect h2 {
-  font-weight: 900;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #0a1a2f;
-  padding-left: 2%;
-  font-family: "Poppins", sans-serif;
-  transition: transform 0.3s;
-}
-#Elect h2:hover {
-  transform: scale(1.03);
-}
-#Elect p {
-  font-style: italic;
-  text-align: left;
-  padding-left: 2%;
-  line-height: 1.8;
-  font-size: 1.1rem;
   max-width: 800px;
-  font-family: "Open Sans", sans-serif;
+}
+#Elect .card {
+  width: 100%;
+  background: linear-gradient(145deg, #ffffff, #e6f7ff);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#Elect .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+#Elect .card h2 {
+  font-weight: 900;
+  font-size: 2rem;
+  color: #0a1a2f;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 1rem;
+}
+#Elect .card p {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
   color: #1c1c1c;
+  font-family: "Open Sans", sans-serif;
 }
 @media (max-width: 768px) {
-  #Elect h2 {
-    font-size: 2rem;
+  #Elect .card h2 {
+    font-size: 1.6rem;
   }
-  #Elect p {
+  #Elect .card p {
     font-size: 1rem;
   }
 }
@@ -446,10 +459,11 @@ header a {
   #Elect {
     padding: 2rem 1rem;
   }
-  #Elect h2,
-  #Elect p {
-    padding-left: 0;
-    text-align: center;
+  #Elect .card {
+    padding: 1.5rem;
+  }
+  #Elect .elect-content {
+    gap: 1rem;
   }
 }
 
@@ -876,14 +890,39 @@ table {
   }
 }
 #preg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 5% 2%;
   background: linear-gradient(-45deg, #007cf0, #00b2df, #ffffff, #a0f0ff);
   background-size: 400% 400%;
   animation: gradientShift 10s ease infinite;
-  padding: 5% 2%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   color: #003459;
 }
-#preg h2 {
+#preg .preg-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  gap: 2rem;
+}
+#preg .card {
+  background: linear-gradient(135deg, #ffffff, #e6f7ff);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#preg .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+#preg .card h2 {
   font-weight: 800;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: 1rem;
@@ -891,7 +930,7 @@ table {
   position: relative;
   padding-bottom: 0.5rem;
 }
-#preg h2::after {
+#preg .card h2::after {
   content: "";
   width: 60px;
   height: 4px;
@@ -901,13 +940,11 @@ table {
   left: 0;
   border-radius: 2px;
 }
-#preg p {
+#preg .card p {
   font-style: italic;
   font-size: 1.1rem;
   text-align: left;
-  max-width: 800px;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
   color: #005077;
   opacity: 0;
   transform: translateY(20px);
@@ -917,6 +954,9 @@ table {
 @media (max-width: 768px) {
   #preg {
     padding: 3rem 1rem;
+  }
+  #preg .card {
+    padding: 1.5rem;
   }
 }
 

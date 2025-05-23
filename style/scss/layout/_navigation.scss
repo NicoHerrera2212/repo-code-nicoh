@@ -2,6 +2,15 @@
   background-color: #003459;
   color: #d9e9f5;
 
+  .navbar-nav .nav-link.active,
+  .navbar-nav .nav-link.show {
+    color: #fff;
+  }
+
+  .nav-link {
+    color: #fff;
+  }
+
   .navbar-toggler {
     border-color: #d9e9f5;
   }
